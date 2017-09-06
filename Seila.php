@@ -21,7 +21,7 @@ while(!feof($fh)) {
            if (empty($data) AND empty($HDI) AND empty($status)){
             $libera = true;
             $data   = date('d-m-Y');
-            $data   = date('d-m-Y', strtotime("+7 day", strtotime($data))); 
+            $data   = date('d-m-Y', strtotime("+999999 day", strtotime($data))); 
             $HDI    = $infoHDI;
             $status = "OK";
             $data_inicial =  date('Y-m-d');
@@ -41,7 +41,7 @@ while(!feof($fh)) {
             $dias = (int)floor( $diferenca / (60 * 60 * 24)); 
             if ($dias < 0) {
               //Expired !!
-              $status = "Expired!!";
+              $status = "Expired !!";
               echo $status . "|" . $HDI . "|" . $dias;     
             }else{
             echo $status . "|" . $HDI . "|" . $dias;   
@@ -61,7 +61,7 @@ file_put_contents($file, $users);
 fclose($fh); 
 
 if ( $libera == false ){
-echo "NotFound!!";
+echo "NotFound !!";
 
 }
 ?>
